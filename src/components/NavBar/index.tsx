@@ -1,23 +1,23 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import { MenuItem, Typography } from "@mui/material";
-import "./index.less";
-
-const pages = ["Home", "News", "Music", "Gear", "About"];
-
-const Navbar = () => {
+import { NAV_ITEMS } from "../../constants/constants";
+import { LIGHT_WEIGHT } from "../../constants/styles";
+/**
+ * @description: Navbar component for website, linking to pages
+ */
+const Navbar = (): React.CElement<any, any> => {
   return (
     <Box
-      className="nav-container"
       sx={{
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
-        backgroundColor: "black",
         flexDirection: "row",
         flexWrap: "nowrap",
+        backgroundColor: "black",
         opacity: 0.8,
         color: "white",
+        height: "15vh",
       }}
     >
       <Box sx={{ display: "flex", flexWrap: "no-wrap" }}>
@@ -32,13 +32,11 @@ const Navbar = () => {
           <Typography
             variant="h4"
             sx={{
-              mr: 2,
-              fontFamily: "Roboto",
-              fontWeight: 300,
-              letterSpacing: ".6rem",
-              color: "inherit",
               display: "flex",
               flexWrap: "no-wrap",
+              mr: 2,
+              fontWeight: LIGHT_WEIGHT,
+              letterSpacing: ".6rem",
               textDecoration: "none",
             }}
           >
@@ -48,8 +46,7 @@ const Navbar = () => {
             variant="caption"
             sx={{
               mr: 2,
-              fontFamily: "Roboto",
-              fontWeight: 300,
+              fontWeight: LIGHT_WEIGHT,
               letterSpacing: ".2rem",
               color: "white",
               display: "flex",
@@ -64,14 +61,14 @@ const Navbar = () => {
       <Box className="ghost"></Box>
       <Box className="ghost"></Box>
       <Box sx={{ display: "flex", flexWrap: "no-wrap" }}>
-        {pages.map((page) => (
-          <MenuItem key={page}>
+        {NAV_ITEMS.map((item) => (
+          <MenuItem key={item}>
             <Typography
               textAlign="center"
               mr={1}
               sx={{ textTransform: "uppercase", letterSpacing: ".2rem" }}
             >
-              {page}
+              {item}
             </Typography>
           </MenuItem>
         ))}
